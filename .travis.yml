@@ -1,9 +1,9 @@
 language: node_js
 node_js:
   - "4.2.4"
-branches:
-  only:
-     - 0.5_dev
+#branches:
+#  only:
+#     - 0.5_dev
 #    - development
 
 before_script:
