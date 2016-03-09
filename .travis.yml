@@ -1,30 +1,24 @@
 language: node_js
 node_js:
-  - "4.2.4"
-#branches:
-#  only:
-#     - 0.5_dev
-#    - development
-
+- 4.2.4
+branches:
+  only:
+  - 0.5_dev
 before_script:
-  - npm install -g gulp bower
-  - npm install
-  - bower install
-
+- npm install -g gulp bower
+- npm install
+- bower install
 script:
-  - node -v
-  - npm -v
-  - gulp build
+- node -v
+- npm -v
+- gulp build
 env:
   global:
-    - secure: "TSc0JROnl2RXBrIyflVS95zt+kRYk4SPD1xGvDx4Jg5Eu+8u6Q1KmMV7ahXGnJy4dSU3ynzJVonlWsUqQpr9DMoofFtOak9ET9NpsBTT2q0084Lyw98LmGDnVuPhBO7leEWxs3XsvZWRedYRpQQG9RP4ns/WckxFlnJF4CO4Tyo="
-    - GH_REPO_URL: https://github.com/$TRAVIS_REPO_SLUG.git
-    - GH_PUSH_URL: https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
-    - OWNER: $(echo $TRAVIS_REPO_SLUG | cut -f1 -d/)
-    - REPOSITORY: $(echo $TRAVIS_REPO_SLUG | cut -f2 -d/)
-
+  - GH_REPO_URL: https://github.com/$TRAVIS_REPO_SLUG.git
+  - GH_PUSH_URL: https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
+  - OWNER: "$(echo $TRAVIS_REPO_SLUG | cut -f1 -d/)"
+  - REPOSITORY: "$(echo $TRAVIS_REPO_SLUG | cut -f2 -d/)"
+  - secure: APiw51fXmGMBTWDZ+Bdu9X32C8zGY/qZvf4ldmYHZRHuV+/3MxsYR1FmEhVcH7Jf0LjkCqfmBsJ8vrYCrU8PeTG300VYCFg1J1V7mkcRMlzduCkOutAj3W5iMxTru7boATa5SE/LBk4Athz8scAiAFrJzPM6rWqUrf103HPJxRxpvFk1HaviBblo4vzK51wJJyC4AtP/OOkK9IRJBbC/so1g3ADpIT7XZnjGXzvpFCVRvmu4PgzpGxJk2788rvsNDd7AAmWLmuZawCA1zoIOfLWO09bRh5hU6OftMQkICL97MpLCfHojI5VPZ6JeL0MfCSWwpW6AKoGtV9WFHSYybTzwvcD13cC38UlwUzSoIPID6sxdACfc1WoQ4Ov2zG5+P87QHtxYsegsL6jvkNlvsEFVlv5GFJZu68ppwm+I9Ukd0+xx+Lvv888ylpptAnaDmoMRSD8Oygt01gugAz78ufpWpe+oG2Lhf27xvYPsIxmF+LxiS8KbkEWYBM4ZjfmlEdb3CwSIUmw0DiF+R0j4tE64o3WnN/7lQgqBiQYI8WnUoSAGlJj671WmbiY7fvrAxQs2br7JGxM51dF/Yt6CPfA6zpWZyru3Iy5WxEWoTmBBDKju2rRVWuDxuZl0gRngxERCfHH24SnOWJ/XkwbVhJU7hhdZKqT2CCYR7KmIwEg=
 after_script:
-  # inside this git repo we'll pretend to be a new user
-  - ./scripts/build.sh
-
+- "./scripts/build.sh"
 sudo: false
